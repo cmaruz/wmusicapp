@@ -1,0 +1,13 @@
+<h1>Create an account to manage your album collections</h1>
+<% if flash[:error] %>
+	<div id="error">
+		<%= flash[:error] %>
+	</div>
+<% end %>
+<%= form_for @user do |f| %>
+	<%= label_tag(:email,'Please provide your email address:') %>
+	<%= f.text_field :email %>
+	<%= label_tag(:password,'Please choose a password') %>
+	<%= f.password_field :password %>
+	<%= f.submit "Sign up"%>
+<% end %> 

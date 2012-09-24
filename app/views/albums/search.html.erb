@@ -1,0 +1,24 @@
+<h1>Search results</h1>
+<div>
+<%= form_tag search_albums_path do %>
+  <div class="field">
+    <%= label_tag :query %>
+    <%= text_field_tag :query,params[:query] %>
+  </div>
+  <div class="actions"><%= submit_tag "Search" %></div>
+<% end %>
+</div>
+<% if !@albums.any? %>
+<div>
+	No albums found
+</div>
+<% end %>
+<% @albums.each do |album| %>
+<div>
+	<h1><%=album.title %></h1>
+	<%= image_tag album.cover,:size => "200x200" %>
+</div>
+<% end %>
+<div>
+	<%= link_to "Add a new album",new_album_path %>
+</div>

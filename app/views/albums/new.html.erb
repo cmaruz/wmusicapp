@@ -1,0 +1,13 @@
+<h1>Add a new album</h1>
+<% if flash[:error] %>
+	<div id="error">
+		<%= flash[:error] %>
+	</div>
+<% end %>
+<%= form_for @album do |f| %>
+	<%= label_tag(:title,'Please provide the title:') %>
+	<%= f.text_field :title %>
+	<%= label_tag(:cover,'Please upload a cover') %>
+	<%= f.file_field :cover %>
+	<%= f.submit "Add the album"%>
+<% end %> 
